@@ -30,7 +30,7 @@
         </div>
         <van-cell-group>
           <van-cell>
-            <div class="goods-title">{{ goodsInfo.title}}</div>
+            <div class="goods-title"><h1 style="font-size: 24px;line-height: 1.5;">{{ goodsInfo.title}}</h1></div>
             <div class="huicolor">{{ goodsInfo.about}}</div>
             <div v-if="$store.state.lang==='ind-BA'" class="goods-price">{{goodsInfo.money_sign}}{{goodsInfo.price | num}}  <s class="huicolor">{{goodsInfo.money_sign}}{{goodsInfo.original_price | num}}</s></div>
             <div v-else class="goods-price">{{goodsInfo.money_sign}}{{goodsInfo.price }}  <s class="huicolor">{{goodsInfo.money_sign}}{{goodsInfo.original_price }}</s></div>
@@ -60,14 +60,15 @@
             <van-tabs class="mallFlexd" v-model="activeTab" swipeable sticky>
                 <van-tab :title="$t('goodsDetails')">
                    <div class="detail">
-                      <div v-for="(image, index) in goodsInfo.detail_list_images" :key="index">
+                      <!-- <div v-for="(image, index) in goodsInfo.detail_list_images" :key="index">
                         <video v-if="ifvido(image)" :src="image" controls="controls" width="100%" style="display: block"/>
                         <van-image v-else lazy-load show-error :src="image">
                           <template v-slot:loading>
                             <van-loading type="spinner" size="20" />
                           </template>
                         </van-image>   
-                      </div>
+                      </div> -->
+                      <div id="detailcontent" v-html="goodsInfo.detail_desc"></div>
                       <van-swipe :autoplay="2000" :duration="1500" :show-indicators="false" style="background-color: #fff">
                         <template v-for="(item,index) in goodsInfo.comments" >
                         <van-swipe-item :key="item.id" v-if=" index < 4" @click.native="gocommenttab">
@@ -930,5 +931,14 @@ import { setTimeout } from 'timers';
   100% {
     transform: scale(1);
   }
+}
+#detailcontent >>> img {
+  width: 100%
+}
+#detailcontent >>> video {
+  width: 100%
+}
+#detailcontent >>> p {
+  word-wrap:break-word;
 }
 </style>
