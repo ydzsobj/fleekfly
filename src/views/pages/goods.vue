@@ -582,6 +582,7 @@ import { setTimeout } from 'timers';
                      let newGoodsInfo = {
                          name:this.goodsInfo.name,
                          title:this.goodsInfo.title,
+                         show_coupon_code: this.goodsInfo.show_coupon_code,
                          skuAttrText: this.skuAttrTextFun(skuData)
                      }
                      cartInfo.push(Object.assign(newGoodsInfo , skuData))     
@@ -633,6 +634,7 @@ import { setTimeout } from 'timers';
                   let newGoodsInfo = {
                        name:this.goodsInfo.name,
                        title: this.goodsInfo.title,
+                       show_coupon_code: this.goodsInfo.show_coupon_code,
                        skuAttrText: this.skuAttrTextFun(skuData)
                    } 
                   try{fbq('track', 'AddToCart');console.log('addtocart')}catch(e){} 
