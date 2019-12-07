@@ -434,6 +434,7 @@
                 this.checkedGoods=[]
             },
             onSubmit(){
+               this.short_address = this.province +"/"+this.crity +"/"+this.area
                this.errName=''
                this.errTelephone=''
                this.errAddress=''
@@ -447,8 +448,9 @@
                }else{
                    regTele= /\d/;
                }
-
-               if(this.name === ''){
+               if(this.isBuyCartAttr === 'buy' && this.fatherSkuData() && !this.fatherSkuData().selectedSkuComb){
+                Toast(this.$t('selectGoodsFirst')); Toast(this.$t('selectGoodsFirst')); return  //判断如果是skubuy模式且sku规格没选就提示请选择
+               }else if(this.name === ''){
                    this.errName = this.$t('nameerr');return
                }else if (this.telephone===''){
                    this.errTelephone = this.$t('errTelephone');return
@@ -459,9 +461,9 @@
                }else if(this.address===''){
                    this.errAddress = this.$t('errAddress');return
                }else if (this.email!='' && !reg.test(this.email)){
-                  Toast(this.$t('errEmail'));return
+                  Toast(this.$t('errEmail'));Toast(this.$t('errEmail'));return
                }
-                console.log(this.malldata,this.countPrice)
+                // console.log(this.malldata,this.countPrice)
                 this.submitloading=true
                 let data = {}
                 data.cart_data = this.malldata
@@ -480,27 +482,27 @@
                         data: data
                     })
                     .then(response=>{
-                        console.log(response)
+                        // console.log(response)
                         if(response.status== 200 && response.data.success){
                             //如果不是直接购买，下单成功后删除对应购物车商品
-                            if(!this.isBuy){
-                            let cartInfo1=JSON.parse(localStorage.cartInfo)
+                            if(this.isBuyCartAttr != 'buy'){
+                            let cartInfo1=JSON.parse(localStorage.cartInfo || "[]")
                             //筛选购物车去掉已经买过的留下还没买的
                             let newCart = cartInfo1.filter(value => {
                                 if (this.checkedGoods.every(function(val){return val != value.selectedSkuComb.id})){ return value}
                                 })
                             localStorage.cartInfo =  JSON.stringify(newCart)       
                             }
-                            try{fbq('track', 'InitiateCheckout');console.log('initcheckout')}catch(e){};
+                            
                             try{ fbq('track', 'Purchase', {value: int(this.countPrice), currency:'USD'}) ;console.log('Purchase')}catch(e){}
                             this.$router.push({name:'order',params:{orderData: this.malldataOrder,orderResponse: response.data.data}})
                         }else{
-                            Toast(this.$t('serveError'))
+                            Toast(this.$t('serveError'));Toast(this.$t('serveError'))
                             this.submitloading=false
                         }
                     }).catch((err)=>{
-                            Toast(this.$t('serveError'))
-                            this.submitloading=false 
+                            Toast(this.$t('serveError'));Toast(this.$t('serveError'))
+                            this.submitloading=false
                     })
             },
             showImage(skuAttrText) {
