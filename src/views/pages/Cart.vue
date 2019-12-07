@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div v-show="false">{{areaList[0].name}}</div>
         <div class="navbar-div">
             <van-nav-bar :title="isBuy ? $t('account'): $t('shopCart')" :left-text="$t('back')" left-arrow @click-left="onClickLeft">
               <!-- <van-icon name="search" slot="right" /> -->
@@ -316,19 +317,20 @@
            this.getCartInfo() 
            this.submitloading= false //每次进来 防止有loading
        },
-       mounted() {console.log(this.areaList)
+       mounted() {
+        //    console.log(this.areaList)
 
-            this.province= this.areaList[0].name
-            this.provinceList= this.areaList.map(function(e){return e.name})
+        //     this.province= this.areaList[0].name
+        //     this.provinceList= this.areaList.map(function(e){return e.name})
 
-            this.crity= this.areaList[0].cityList[0].name
-            this.crityList= this.areaList[0].cityList.map(function(e){return e.name})
+        //     this.crity= this.areaList[0].cityList[0].name
+        //     this.crityList= this.areaList[0].cityList.map(function(e){return e.name})
 
-            this.area= this.areaList[0].cityList[0].areaList[0].name
-            this.areasList= this.areaList[0].cityList[0].areaList.map(function(e){return e.name})
+        //     this.area= this.areaList[0].cityList[0].areaList[0].name
+        //     this.areasList= this.areaList[0].cityList[0].areaList.map(function(e){return e.name})
 
-            this.zipCode= this.areaList[0].cityList[0].areaList[0].postList[0]
-            this.postList= this.areaList[0].cityList[0].areaList[0].postList
+        //     this.zipCode= this.areaList[0].cityList[0].areaList[0].postList[0]
+        //     this.postList= this.areaList[0].cityList[0].areaList[0].postList
        },
        computed:{
            totalMoney(){
@@ -363,13 +365,18 @@
                  }   //印尼地区每次价格变动都会看有没有小数点，有小数就保留两位，否则还是保留整数
                return num
            },
+           lang(){
+               return this.$store.state.lang
+           },
            areaList(){
-                    console.log('laofanxxx',this.$store.state.lang)
-               if(this.$store.state.lang === 'ind-BA'){
+               if(this.lang === 'ind-BA'){   
+                    this.provinceinit(obj)
                     return obj
-                }else if (this.$store.state.lang === 'en-PHP'){
+                }else if (this.lang === 'en-PHP'){
+                    this.provinceinit(JSON.parse(JSON.stringify(objFlb).replace(/&#39;/g,"'")))
                     return JSON.parse(JSON.stringify(objFlb).replace(/&#39;/g,"'"))
                 }else{
+                    this.provinceinit(obj)
                     return obj
                 }
                }
@@ -399,6 +406,19 @@
            }
        },
        methods: {
+           provinceinit(data){
+            this.province= data[0].name
+            this.provinceList= data.map(function(e){return e.name})
+
+            this.crity= data[0].cityList[0].name
+            this.crityList= data[0].cityList.map(function(e){return e.name})
+
+            this.area= data[0].cityList[0].areaList[0].name
+            this.areasList= data[0].cityList[0].areaList.map(function(e){return e.name})
+
+            this.zipCode= data[0].cityList[0].areaList[0].postList[0]
+            this.postList= data[0].cityList[0].areaList[0].postList
+           },
            onClickLeft () {
                this.$router.go(-1)
            },
