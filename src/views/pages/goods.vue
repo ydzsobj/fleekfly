@@ -1,12 +1,12 @@
 <template>
     <div>
-      <div class="notice" v-show="notice_show">
+      <!-- <div class="notice" v-show="notice_show">
         <van-notice-bar
           :text="notice_con_1"
           left-icon="volume-o"
           :speed="90"
         />
-      </div>
+      </div> -->
       <van-pull-refresh v-model="pullLoading" @refresh="onRefresh" :pulling-text="$t('pullingText')" :loosing-text="$t('lossText')" :loading-text="$t('loading')">
         <div style="font-size: 14px;">
             <img src="../../assets/images/ydzstou.png" width="50px" style="float: right;margin: 9px 0;">
@@ -486,6 +486,9 @@ import { setTimeout } from 'timers';
               this.getInfo()
               this.getNotice()
             }
+            if(Object.keys(this.goodsInfo).length==0){
+              this.getInfo()   //如果goodsInfo 为空 就发
+            }
         },
         methods: {
             getNotice() {   
@@ -500,32 +503,32 @@ import { setTimeout } from 'timers';
                             console.log(response.data)
                               this.attrTextFun()  
                               this.index_1 = 0
-                              this.notice(response.data.data)
+                              // this.notice(response.data.data)
                           }
                       })
             },
-            notice(a){
-              var that = this
-              var date = 8000
-              if(a.length >0){
-                var t=setInterval(fn,date);
-              }
-              function fn(){
-                  date = 23000
-                  that.notice_show = true
-                  that.notice_con_1= '　　'+ a[that.index_1].receiver_name +'  ' + that.$t('justbuy') +'　　'
-                  that.index_1=that.index_1+1;
-                  setTimeout(function(){ that.notice_show = false },15000)
-                  if(that.index_1==a.length){
-                    clearInterval(t)
-                  }
-                  if (that.index_1 == 1 && that.index_1 !=a.length) {
-                    clearInterval(t);
-                    t = setInterval(fn, date);
-                  }
-              }
+            // notice(a){
+            //   var that = this
+            //   var date = 8000
+            //   if(a.length >0){
+            //     var t=setInterval(fn,date);
+            //   }
+            //   function fn(){
+            //       date = 23000
+            //       that.notice_show = true
+            //       that.notice_con_1= '　　'+ a[that.index_1].receiver_name +'  ' + that.$t('justbuy') +'　　'
+            //       that.index_1=that.index_1+1;
+            //       setTimeout(function(){ that.notice_show = false },15000)
+            //       if(that.index_1==a.length){
+            //         clearInterval(t)
+            //       }
+            //       if (that.index_1 == 1 && that.index_1 !=a.length) {
+            //         clearInterval(t);
+            //         t = setInterval(fn, date);
+            //       }
+            //   }
               
-            },
+            // },
             getInfo() {
              return new Promise ((reslove,reject)=>{   
                       axios({
@@ -798,7 +801,7 @@ import { setTimeout } from 'timers';
     .detail >>> .van-image {
       display: block
     }
-    .notice{
+    /* .notice{
       position: fixed;
     max-height: 100%;
     overflow-y: auto;
@@ -809,7 +812,7 @@ import { setTimeout } from 'timers';
     }
     .notice >>>.van-notice-bar{
       background-color: rgba(255,251,230,.6)
-    }
+    } */
     .notification{
     position: fixed;
     right: 0;

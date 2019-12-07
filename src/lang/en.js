@@ -1,54 +1,60 @@
 
 export default { 
+    concatus: 'Contact Us',
+    aboutus: 'About Us',
     home: 'Home',
     list: 'Category',
-    classlist:'Category list',
-    outfloor: 'No more',
-    hotgoods: 'Selling goods',
-    carriage: 'Shipping fee',  //运费
-    inventory: 'Stock quantity', //库存
+    classlist:'Category List',
+    outfloor: 'No More',
+    hotgoods: 'Selling Goods',
+    carriage: 'Shipping Fee',  //运费
+    inventory: 'Stock Quantity', //库存
     select: 'Select', //选择
-    selected: 'The selected',
-    goodsDetails: 'Product detail',
+    selected: 'The Selected',
+    goodsDetails: 'Product Detail',
     comment: 'Comment',
-    nomore: 'No more',
-    shopCart: 'Shopping cart',
-    store: 'Store', //店铺
-    addCart: 'Add to shopping cart',
-    buy: 'Buy',//立即购买
+    nomore: 'No More',
+    shopCart: 'Shopping Cart',
+    store: 'Mall', //店铺
+    addCart: 'Add To Cart',
+    buy: 'Buy (COD+Free shipping)',//立即购买
     ok: 'CONFIRM',
     buyNum: 'Quantity', //购买数量
-    message: 'Leave word ', //留言
-    messagePlaceholder: 'Please enter your text',
-    serveError: 'Server error, data retrieval failed',
-    successAdd: 'Successfully added',
-    account: 'Check out',
-    total: 'Total',
+    message: 'Leave Word ', //留言
+    storeenter: 'Enter The Mall',
+    official: 'resmi',
+    messagePlaceholder: 'Please Enter Your Text',
+    serveError: 'Server Error, Data Retrieval Failed',
+    successAdd: 'Successfully Added',
+    account: 'Complete Order',
+    total: 'Total  ',
     back: 'Back',
-    clearCart: 'Clear cart',
+    clearCart: 'Clear Cart',
     clear: 'Clear',
-    payOnDelivery: 'Pay on delivery', //货到付款
+    payOnDelivery: 'Pay On Delivery', //货到付款
     name: 'Name',
-    nameholder: 'Please input your name',
+    nameholder: 'Please Input Your Name',
     phoneNumber: 'Phone Number',
-    phoneNumberholder: ' Please input your phone number',
+    phoneNumberholder: ' Please Input Your Phone Number',
     email: 'Email',
-    emailholder: 'Please input your email',
+    emailholder: 'Please Input Your Email',
     province: 'Province',
-    provinceholder: 'Please input your Province, city and district',
+    crity: 'Crity',
+    area: 'Barangay',
+    post: 'PostalCode',
+    provinceholder: 'Please Input Your Province, City And District',
     address: 'Detailed Address',
-    addressholder: 'Please input your Detailed Address',
-    zipCode: 'Zip code',
-    zipCodeholder: 'Please input zip code',
-    zipCodeholder1: 'Please choose the provincial area first',
-    message: 'Message',
-    messageholder: 'Please input your message',
-    nameerr: 'Name can’t be blank!',
-    errTelephone: 'Phone number can’t be blank!',
-    errTelephone2:'Wrong format of phone number!',
-    errShort_address: 'Province, city and district can’t be blank!',
-    errAddress: 'Full address can’t be blank',
-    errEmail: 'Email format can’t be blank!',
+    addressholder: 'Please Input Your Detailed Address',
+    zipCode: 'Zip Code',
+    zipCodeholder: 'Please Input Zip Code',
+    zipCodeholder1: 'Please Choose The Provincial Area First',
+    messageholder: 'Please Input Your Message',
+    nameerr: 'Name Can’t Be Blank!',
+    errTelephone: 'Phone Number Can’t Be Blank!',
+    errTelephone2:'Wrong Format Of Phone Number!',
+    errShort_address: 'Province, City And District Can’t Be Blank!',
+    errAddress: 'Full Address Can’t Be Blank',
+    errEmail: 'Email Format Can’t Be Blank!',
     orderNumber: 'Order No:',
     orderTime: 'Order Time:',
     ordersuccessful: 'Order successful',
@@ -109,5 +115,10 @@ export default {
     mainFooter_return:'Return and Exchange Policy',
     mainFooter_privacy:'Privacy Policy',
     mainFooter_contact:'Contact Us',
-    mainFooter_2:'. All rights reserved'
+    mainFooter_2:'. All rights reserved',
+    buyNow:'Buy Now',
+    seek:'search',
+    searchProducts:'Search products',
+    seekErr:'Didn\'t find product results',
+    seekErr_1:'Please re-enter product requests!'
     }

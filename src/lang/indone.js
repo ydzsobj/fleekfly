@@ -1,5 +1,7 @@
 
 export default { 
+    concatus: 'Hubungi kami',
+    aboutus: 'Tentang kita',
     home: 'Halaman utama',
     list: 'Klasifikasi',
     classlist:'Daftar kategori',
@@ -13,12 +15,15 @@ export default {
     comment: 'komentar',
     nomore: 'Tidak ada lagi',
     shopCart: 'Daftar belanja',
-    store: 'Toko', //店铺
-    addCart: 'Tambahkan ke daftar belanja',
-    buy: 'Segera pesan',//立即购买
+    store: 'Mall', //店铺
+    addCart: 'Tambah Ke Troli',
+    buy: 'Beli Sekarang',//立即购买
     ok: 'Konfirm',
     buyNum: 'Jumlah pesanan', //购买数量
     message: 'Tinggalkan pesan', //留言
+    storeenter: 'Masuk ke mall',
+    stock: 'Sudah terjual ',
+    official: 'The official',
     messagePlaceholder: 'Silakan masukkan teks anda',
     serveError: 'Galat server, pengiriman data gagal',
     successAdd: 'Berhasil ditambahkan',
@@ -28,7 +33,7 @@ export default {
     couponerr: 'Kode promo tidak valid',
     couponmoney: 'Jumlah bantuan',
     couponUn: 'Preferential terms not met',
-    account: 'Penyelesaian',
+    account: 'Beli',
     total: 'Jumlah',
     back: 'Kembali',
     clearCart: 'Hapuskan daftar',
@@ -40,14 +45,16 @@ export default {
     phoneNumberholder: 'Masukan nomor telpon yg aktif',
     email: 'Alamat email',
     emailholder: 'Masukan alamat email',
-    province: 'Kota provinsi kabupaten',
+    province: 'Provinsi',
+    crity: 'Kabupaten',
+    area: 'Kecamatan',
+    post: 'Kode pos',
     provinceholder: 'Masukan Kota provinsi kabupaten',
     address: 'Alamat lengkap',
     addressholder: 'Masukan alamat lengkap',
-    zipCode: 'P. M. A.',
+    zipCode: 'Kode pos',
     zipCodeholder: 'Kode pos, silakan',
     zipCodeholder1: 'Memilih daerah metropolitan pertama',
-    message: 'Tinggalkan pesan',
     messageholder: 'Silakan tinggalkan pesan',
     nameerr: 'Tempat ini tidak boleh kosong',
     errTelephone: 'Tempat ini tidak boleh kosong',
@@ -104,5 +111,10 @@ export default {
     mainFooter_return:'kebijakan retur',
     mainFooter_privacy:'kebijakan pribadi',
     mainFooter_contact:'hubungi kami',
-    mainFooter_2:'. All rights reserved'
+    mainFooter_2:'. All rights reserved',
+    buyNow:'Beli Sekarang',
+    seek:'cari',
+    searchProducts:'cari produk',
+    seekErr:'Tidak menemukan hasil produk ',
+    seekErr_1:'Harap masukkan kembali permintaan produk!'
     }

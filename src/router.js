@@ -19,6 +19,7 @@ let router = new Router({
       {path:'Cart',name:'Cart',component: () => import('@/views/pages/Cart')},
       {path:'goods',name:'Goods',component: () => import('@/views/pages/goods')},
       {path:'flootPage',name:'flootPage',component: () => import('@/views/pages/flootPage')},
+      {path:'seek',name:'seek',component: () => import('@/views/pages/seek')},
       {path:'404',name:'404',component: () => import('@/views/pages/404')},
       // {path:'/Member',name:'Member',component:Member},
     ]

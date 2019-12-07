@@ -16,7 +16,7 @@
         <van-nav-bar @click-left="onClickNavLeft" left-arrow :fixed="bar_fixed" :z-index=3 class="left50">
             <van-icon name="wap-nav" slot="left" />
             <img src="../../assets/images/ydzs.png" slot="title" style="max-height:40px">
-            <van-icon name="search" slot="right" />
+            <van-icon name="search" slot="right" @click="onSeek" />
         </van-nav-bar>
         <div style="height:46px"></div>
         <van-sidebar v-model="activeKey" id="navLeft" v-show="navLeft_show">
@@ -77,13 +77,13 @@
             <div class="hot-goods">
             <!--这里需要一个list组件-->
                 <van-list>
-                    <van-row gutter="20">
+                    <!-- <van-row gutter="20"> -->
                         <van-col span="12" v-for="(item , index) in hotGoods" :key="index">
                                 <goods-info :goodsId="item.goodsId" :goodsImage="item.image" :goodsName="item.name" :goodsPrice="item.price">
 
                                 </goods-info>
                         </van-col>
-                    </van-row>
+                    <!-- </van-row> -->
                 </van-list>
             </div>
         </div>
@@ -177,6 +177,9 @@
             onClickNavLeft(){
                 this.show=!this.show
                 this.navLeft_show=!this.navLeft_show
+            },
+            onSeek(){
+                this.$router.push({name:'seek'})
             }
         },
         mounted(){
@@ -310,9 +313,17 @@
         /* height: 130rem; */
         overflow: hidden;
         background-color: #fff;
+        padding: 0 8px
     }
     
-
+.hot-goods>div>div:nth-child(2n) {
+        padding-left: 4px;
+        margin-bottom: 6px
+    }
+    .hot-goods>div>div:nth-child(odd) {
+        margin-bottom: 6px;
+        padding-right: 4px;
+    }
 
 
 
