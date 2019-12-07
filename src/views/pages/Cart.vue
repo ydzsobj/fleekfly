@@ -433,8 +433,8 @@
                     this.cartInfo.push(skuData)
                     this.checkedGoods=[]
                     this.checkedGoods.push(skuData.selectedSkuComb.id)
-                }else{
-                   if(localStorage.cartInfo){
+                }else if(this.$route.query.cart){
+                    if(localStorage.cartInfo){
                     this.cartInfo=JSON.parse(localStorage.cartInfo)
                     this.checkedGoods = []
                     //默认全部选中
@@ -445,6 +445,8 @@
                    console.log('checkedGoods',this.checkedGoods)
                    console.log(this.cartInfo)
                    this.isEmpty=this.cartInfo.length>0 ?true : false
+                }else{
+                   this.$router.go(-1)
                 }
             
             },

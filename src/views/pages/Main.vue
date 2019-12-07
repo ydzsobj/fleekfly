@@ -110,7 +110,7 @@
                         this.$router.push({name:'CategoryList'})
                         break;
                    case 2:
-                        this.$router.push({name:'Cart'})
+                        this.$router.push({name:'Cart',query:{cart:'0'}})
                         break;
                     case 3:
                         this.$router.push({name:'Member'})

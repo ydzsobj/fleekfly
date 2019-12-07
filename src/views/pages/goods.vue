@@ -607,7 +607,7 @@ import { setTimeout } from 'timers';
                 this.$router.push({name:"ShoppingMall"})
             },
             tocart(){
-                this.$router.push({name:'Cart'})
+                this.$router.push({name:'Cart',query:{cart:'0'}})
             },
             onLoad() {
               setTimeout(() => {
