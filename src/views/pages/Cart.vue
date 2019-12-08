@@ -353,7 +353,7 @@
                        }
                    });
                });
-               console.log(this.malldata,this.countPrice)
+            //    console.log(this.malldata,this.countPrice)
                return this.countPrice
            },
            totalMoneyCoupon(){
