@@ -938,10 +938,12 @@ import { setTimeout } from 'timers';
   }
 }
 #detailcontent >>> img {
-  width: 100%
+  width: 100%;
+  display: block;
 }
 #detailcontent >>> video {
-  width: 100%
+  width: 100%;
+  display: block;
 }
 #detailcontent >>> p {
   word-wrap:break-word;
