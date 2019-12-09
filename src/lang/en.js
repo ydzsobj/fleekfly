@@ -57,7 +57,7 @@ export default {
     errEmail: 'Email Format Can’t Be Blank!',
     orderNumber: 'Order No:',
     orderTime: 'Order Time:',
-    ordersuccessful: 'Order successful',
+    ordersuccessful: 'Order Successfully',
     atLeastOne: 'Choose at least one',
     selectGoodsFirst: 'Please select the product specification first',
     cartnull: 'Your shopping cart is empty!',
