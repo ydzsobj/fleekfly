@@ -508,7 +508,7 @@
                         // console.log(response)
                         if(response.status== 200 && response.data.success){
                             //如果不是直接购买，下单成功后删除对应购物车商品
-                            if(this.isBuyCartAttr != 'buy'){
+                            if(!this.isBuy){
                             let cartInfo1=JSON.parse(localStorage.cartInfo || "[]")
                             //筛选购物车去掉已经买过的留下还没买的
                             let newCart = cartInfo1.filter(value => {
