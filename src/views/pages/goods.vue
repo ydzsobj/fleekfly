@@ -35,12 +35,12 @@
             <div v-if="$store.state.lang==='ind-BA'" class="goods-price">{{goodsInfo.money_sign}}{{goodsInfo.price | num}}  <s class="huicolor">{{goodsInfo.money_sign}}{{goodsInfo.original_price | num}}</s></div>
             <div v-else class="goods-price">{{goodsInfo.money_sign}}{{goodsInfo.price }}  <s class="huicolor">{{goodsInfo.money_sign}}{{goodsInfo.original_price }}</s></div>
           </van-cell>
-          <van-cell class="goods-express">
-            <van-col class="huicolor" span="6">{{ $t('carriage') }}</van-col>
-            <van-col class="huicolor" span="6">0</van-col>
+          <!-- <van-cell class="goods-express"> -->
+            <!-- <van-col class="huicolor" span="6">{{ $t('carriage') }}</van-col>
+            <van-col class="huicolor" span="6">0</van-col> -->
             <!-- <van-col class="huicolor" span="6">{{ $t('inventory') }}</van-col>
             <van-col class="huicolor" span="6">{{goodsInfo.stock_num}}</van-col> -->
-          </van-cell>
+          <!-- </van-cell> -->
         </van-cell-group>
         <van-cell-group @click.native= showSkuAttr>
           <van-cell class="goods-express">
