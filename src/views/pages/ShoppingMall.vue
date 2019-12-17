@@ -270,12 +270,14 @@
         display:flex;
         flex-direction:row;
         flex-wrap:nowrap;
+        justify-content: center;
     }
     .type-bar div{
         padding:.3rem;
         font-size:12px;
         text-align: center;
         flex:1;
+        max-width: 80px;
     }
     .type-bar div span{
         display: inline-block
