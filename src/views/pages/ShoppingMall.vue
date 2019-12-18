@@ -101,7 +101,7 @@
  
     import floorComponent from '../component/floorComponent'
     import mainFooter from '../component/mainFooter'
-    import { toMoney , int,num} from '@/filter/moneyFilter.js'
+    import { toMoney , int,num,toThousands} from '@/filter/moneyFilter.js'
     import goodsInfo from '../component/goodsInfoComponent'
     import url from '@/serviceAPI.config.js'
    
@@ -140,6 +140,9 @@
             },
             num(money){
                 return num(money)
+            },
+            toThousands(money){
+                return toThousands(money)
             }
         },
         components:{swiper,swiperSlide,floorComponent,goodsInfo,mainFooter},

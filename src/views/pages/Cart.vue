@@ -36,7 +36,7 @@
               :thumb="showImage(item.skuAttrText)"
             >
                <div slot="tags" class="redcolor">
-                   <span v-if="$store.state.lang==='ind-BA'">{{$store.state.money_sign}}{{item.selectedSkuComb.price | int}}</span>
+                   <span v-if="$store.state.lang==='ind-BA'">{{$store.state.money_sign}}{{item.selectedSkuComb.price | int|toThousands}}</span>
                    <span v-else>{{$store.state.money_sign}}{{item.selectedSkuComb.price | toDivide}}</span>
                </div>
                <div slot="num">
@@ -222,7 +222,7 @@
           @submit="onSubmit"
         >
            <div v-if="total_off" slot="tip"> {{$t('couponmoney')}}
-                <span v-if="$store.state.lang==='ind-BA'" style="float: right;">-{{$store.state.money_sign}}{{total_off| int}}</span>
+                <span v-if="$store.state.lang==='ind-BA'" style="float: right;">-{{$store.state.money_sign}}{{total_off| int|toThousands}}</span>
                 <span v-else style="float: right;">-{{$store.state.money_sign}}{{total_off| toDivide}}</span>
             </div>
         </van-submit-bar>
@@ -255,8 +255,11 @@
     import { toMoney, toDivide, toThousands,int} from '@/filter/moneyFilter.js'
     import obj from '@/province/ndnxy.js'
     import objFlb from '@/province/flb.js'
-    // import {SubmitBar} from '../../vant'
+    import {SubmitBar} from '../../vant'
     export default {
+        components: {
+        [SubmitBar.name]: SubmitBar,
+      },
        data() {
            return {
                provinceList: [],
@@ -357,14 +360,15 @@
                return this.countPrice
            },
            totalMoneyCoupon(){
-               console.log(this.totalMoney - this.total_off)
+            //    console.log(this.totalMoney - this.total_off)
                let num = this.totalMoney - this.total_off
-                 if(this.$store.state.lang === 'ind-BA' && (num/100).toString().indexOf('.')>0){
+                 if(this.$store.state.lang === 'ind-BA'){
                      this.decimalLength = 2
-                 }else if(this.$store.state.lang === 'ind-BA' && (num/100).toString().indexOf('.') === -1){
+                     return toThousands(int(num))
+                 }else{
                      this.decimalLength = 0
+                     return toDivide(num)
                  }   //印尼地区每次价格变动都会看有没有小数点，有小数就保留两位，否则还是保留整数
-               return num
            },
            lang(){
                return this.$store.state.lang
@@ -394,7 +398,8 @@
        },
        filters:{
            toThousands(money){
-              return toThousands()
+               console.log(toThousands(money))
+              return toThousands(money)
            },
            moneyFilter(money){
                return toMoney(money)

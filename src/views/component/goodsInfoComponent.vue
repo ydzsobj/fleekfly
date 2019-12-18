@@ -5,13 +5,13 @@
         </div>
         <div class="goods-name">{{goodsName}}</div>
         <!-- <div class="goods-price">{{$store.state.money_sign}}{{goodsPrice  }}</div> -->
-        <div class="goods-price" v-if="$store.state.lang==='ind-BA'">{{$store.state.money_sign}}{{goodsPrice |num}}</div>
+        <div class="goods-price" v-if="$store.state.lang==='ind-BA'">{{$store.state.money_sign}}{{goodsPrice |num|toThousands}}</div>
         <div class="goods-price" v-else>{{$store.state.money_sign}}{{goodsPrice}}</div>
     </div>
 </template>
 
 <script>
-    import {toMoney,num}  from '@/filter/moneyFilter.js'
+    import {toMoney,num,toThousands}  from '@/filter/moneyFilter.js'
     export default {
         props:['goodsImage','goodsName','goodsPrice','goodsId'],
         filters:{
@@ -20,6 +20,9 @@
             },
             num(money){
                 return num(money)
+            },
+            toThousands(money){
+                return toThousands(money)
             }
         },
         methods: {
