@@ -5,7 +5,7 @@ if(process.env.NODE_ENV === 'development'){
 }else if(process.env.NODE_ENV === 'test'){
     var LOCALURL =  "http://www.website.cc/"
 }else{
-    LOCALURL =  "http://shop.selamatberbelanja-id.com/"
+    LOCALURL =  "https://shop.selamatberbelanja-id.com/"
      
 }
 console.log(process.env.NODE_ENV,location.host)
