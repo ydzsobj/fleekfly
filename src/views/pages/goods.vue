@@ -627,7 +627,9 @@ import { setTimeout } from 'timers';
                 }
               }, 500);
             },
-            showSkuBuy() {this.show = true ; this.isBuyCartAttr = 'buy';this.showAddCartBtn=false;this.buyText= this.$t('ok')},
+            showSkuBuy() {this.show = true ; this.isBuyCartAttr = 'buy';this.showAddCartBtn=false;this.buyText= this.$t('ok')
+                          try{fbq('track', 'InitiateCheckout');console.log('initcheckout')}catch(e){};
+            },
             showSkuCart() {this.show = true ; this.isBuyCartAttr = 'cart';this.showAddCartBtn=false;this.buyText= this.$t('ok')},
             showSkuAttr() {this.show = true ; this.isBuyCartAttr = 'attr';this.showAddCartBtn=true;this.buyText= this.$t('buy')},
             onBuyClicked(skuData){
@@ -654,6 +656,8 @@ import { setTimeout } from 'timers';
               },
             skuSelected(skuValue) {
               // console.log(skuValue)
+                      try{fbq('track', 'AddToCart');console.log('addtocart')}catch(e){} 
+                      try{fbq('track', 'Lead');console.log('Lead')}catch(e){} 
             },
             attrTextFun () {
               let arr = []
